@@ -553,7 +553,7 @@ export default function STEMCityTerrain({ config, muted, onToggleMute }) {
           setDemoCalcFeedback({ type: "success", msg: `✓ Correct! Adults: ${newResidentDemo.adults}, Children: ${newResidentDemo.children}, Elderly: ${newResidentDemo.elderly}` });
           setDemoCalcPassed(true);
           setTaskComplete(true);
-          setTimeout(() => { setShowDemoCalc(false); addNotification(`🎉 Demographics verified! +§${TASKS[2].reward.toLocaleString()}`); setCoins(prev => prev + TASKS[2].reward); }, 2000);
+          setTimeout(() => { setShowDemoCalc(false); setShowTaskPopup(true); addNotification(`🎉 Demographics verified! +§${TASKS[2].reward.toLocaleString()}`); setCoins(prev => prev + TASKS[2].reward); }, 2000);
         } else if (mathDifficulty === "medium") {
           setDemoCalcFeedback({ type: "success", msg: `✓ Correct! Now... 10 adults, 2 children, and 2 elderly don't move in as planned.` });
           setTimeout(() => { setDemoPhase(2); setDemoCalcFeedback(null); }, 1500);
@@ -582,7 +582,7 @@ export default function STEMCityTerrain({ config, muted, onToggleMute }) {
         setDemoCalcFeedback({ type: "success", msg: `✓ Correct! ${mediumAdjusted.adults} : ${mediumAdjusted.children} : ${mediumAdjusted.elderly} (simplifies to ${mediumRatio.adults} : ${mediumRatio.children} : ${mediumRatio.elderly})` });
         setDemoCalcPassed(true);
         setTaskComplete(true);
-        setTimeout(() => { setShowDemoCalc(false); addNotification(`🎉 Demographics verified! +§${TASKS[2].reward.toLocaleString()}`); setCoins(prev => prev + TASKS[2].reward); }, 2000);
+        setTimeout(() => { setShowDemoCalc(false); setShowTaskPopup(true); addNotification(`🎉 Demographics verified! +§${TASKS[2].reward.toLocaleString()}`); setCoins(prev => prev + TASKS[2].reward); }, 2000);
       } else {
         const penalty = applyPenalty();
         setDemoCalcFeedback({ type: "error", msg: `❌ Incorrect. Subtract 10 adults, 2 children, 2 elderly from your totals, then simplify the ratio. (-§${penalty.toLocaleString()})` });
@@ -594,7 +594,7 @@ export default function STEMCityTerrain({ config, muted, onToggleMute }) {
         setDemoCalcFeedback({ type: "success", msg: `✓ Correct! P(${housingCount.total}, 3) = ${housingCount.total} × ${housingCount.total - 1} × ${housingCount.total - 2} = ${hardPermutations}` });
         setDemoCalcPassed(true);
         setTaskComplete(true);
-        setTimeout(() => { setShowDemoCalc(false); addNotification(`🎉 Demographics verified! +§${TASKS[2].reward.toLocaleString()}`); setCoins(prev => prev + TASKS[2].reward); }, 2000);
+        setTimeout(() => { setShowDemoCalc(false); setShowTaskPopup(true); addNotification(`🎉 Demographics verified! +§${TASKS[2].reward.toLocaleString()}`); setCoins(prev => prev + TASKS[2].reward); }, 2000);
       } else {
         const penalty = applyPenalty();
         setDemoCalcFeedback({ type: "error", msg: `❌ Incorrect. Think: for the first house you have ${housingCount.total} choices, then ${housingCount.total - 1}, then ${housingCount.total - 2}. (-§${penalty.toLocaleString()})` });
